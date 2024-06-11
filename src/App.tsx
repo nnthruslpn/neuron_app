@@ -91,8 +91,8 @@ const FlexBoxCol = styled.div`
   height: 100vh; /* Установите высоту родительского элемента */
 `;
 const NewComponent = styled.div`
-  height: 55vh;
-  width: 84vw; /* занять всю ширину экрана */
+  height: 50vh;
+  width: 82vw; /* занять всю ширину экрана */
   display: flex;
   justify-content: space-between;
   align-items: center;
