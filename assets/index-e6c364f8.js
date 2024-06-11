@@ -1205,6 +1205,11 @@ PERFORMANCE OF THIS SOFTWARE.
   padding: 10px 20px;
   transition: background 0.3s ease-in-out;
   margin: auto; /* Добавьте это свойство */
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `,oT=hn.div`
   flex-grow: 1;
 `;function aT(){GB();const e=155,t=300;return ii(ZB,{children:[ii(f5,{style:{justifyContent:"space-between",alignItems:"center",padding:"8px 16px",backgroundColor:"#f7f7f7",height:40,position:"absolute",top:0,left:0,right:0,borderBottomLeftRadius:10,borderBottomRightRadius:10},children:[Jr("h2",{style:{color:"#666",background:"linear-gradient(to right, #666, #999)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"},children:"NEURON"}),Jr(VR,{})," "]}),Jr(YB,{style:{marginTop:60,width:"90vw",marginLeft:0,marginRight:0},children:ii(f5,{style:{justifyContent:"stretch",alignItems:"center",width:"100%"},children:[ii(u5,{style:{flex:1,width:"50%"},children:[Jr(tT,{children:ii(rT,{children:["NFT's: ",2]})}),ii(nT,{children:[Jr(oT,{}),Jr(iT,{children:"Buy"})]})]}),Jr(u5,{style:{flex:1,width:"50%"},children:ii(QB,{children:[Jr(JB,{children:Jr(eT,{style:{height:`${e/t*100}%`}})}),ii(XB,{children:["Free NFT's",Jr("br",{}),ii("span",{style:{fontSize:12},children:[e,"/",t]})]})]})})]})})]})}const sT="https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json",fT=new _9({defaultOptions:{queries:{refetchOnWindowFocus:!1}}});P1.createRoot(document.getElementById("root")).render(Jr(HR,{manifestUrl:sT,children:Jr(Rw,{client:fT,children:Jr(aT,{})})}));
