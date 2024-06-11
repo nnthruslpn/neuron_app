@@ -114,6 +114,11 @@ const BuyButton = styled.button`
   padding: 10px 20px;
   transition: background 0.3s ease-in-out;
   margin: auto; /* Добавьте это свойство */
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 const Filler = styled.div`
   flex-grow: 1;
