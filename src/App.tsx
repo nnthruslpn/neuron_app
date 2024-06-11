@@ -92,18 +92,31 @@ const FlexBoxCol = styled.div`
 `;
 const NewComponent = styled.div`
   height: 50vh;
-  width: 82vw; /* занять всю ширину экрана */
+  width: 82vw;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between; /* Добавьте это свойство */
+  align-items: center; /* Добавьте это свойство */
   background-color: #f7f7f7;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
-const NewText = styled.span`
+
+const BuyButton = styled.button`
+  width: 70vw;
+  background: #000;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
   font-size: 18px;
-  margin-bottom: 0;
+  padding: 10px 20px;
+  transition: background 0.3s ease-in-out;
+  margin: auto; /* Добавьте это свойство */
+`;
+const Filler = styled.div`
+  flex-grow: 1;
 `;
 
 function App() {
@@ -147,10 +160,9 @@ function App() {
       </NftComponent>
       
       <NewComponent>
-    <NewText>
-      Новый компонент
-    </NewText>
-  </NewComponent>
+      <Filler />
+      <BuyButton>Buy</BuyButton>
+     </NewComponent>
  
     </FlexBoxCol>
     <FlexBoxCol style={{ flex: 1, width: '50%' }}>
