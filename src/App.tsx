@@ -8,11 +8,13 @@ import { useTonConnect } from "./hooks/useTonConnect";
 import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
-  background-color: #e8e8e8;
-  color: black;
-
-  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 92vw;
+  height: 100vh;
   padding: 20px 20px;
+  overflow: hidden;
 `;
 
 const AppContainer = styled.div`
@@ -116,7 +118,7 @@ function App() {
       </h2>
       <TonConnectButton /> {/* используем компонент TonConnectButton */}
     </FlexBoxRow>
-    <AppContainer style={{ marginTop: 40, width: '90vw' }}>
+    <AppContainer style={{ marginTop: 60, width: '90vw', marginLeft: 0, marginRight: 0 }}>
   <FlexBoxRow style={{ justifyContent: 'stretch', alignItems: 'center', width: '100%' }}>
     <FlexBoxCol style={{ flex: 1, width: '50%' }}>
       <NftComponent>
