@@ -15,7 +15,7 @@ const StyledApp = styled.div`
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
-  сolor: '#f0f0f0'
+  background-color: #fff;
 `;
 
 const AppContainer = styled.div`
@@ -23,7 +23,6 @@ const AppContainer = styled.div`
   margin: 0 ;
   display: flex;
   justify-content: space-between;
-  сolor: '#f0f0f0'
 `;
 
 const QuantityComponent = styled.div`
@@ -62,7 +61,7 @@ const Slider = styled.div`
 `;
 
 const NftComponent = styled.div`
-  flex: 1; /* Добавьте это свойство */
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,6 +87,7 @@ const FlexBoxCol = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100vh; /* Установите высоту родительского элемента */
 `;
 function App() {
   const { network } = useTonConnect();
