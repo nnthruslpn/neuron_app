@@ -15,6 +15,7 @@ const StyledApp = styled.div`
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
+  backgroundColor: '#f0f0f0'
 `;
 
 const AppContainer = styled.div`
