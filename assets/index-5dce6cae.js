@@ -1121,15 +1121,11 @@ PERFORMANCE OF THIS SOFTWARE.
   background-color: #e8e8e8;
   color: black;
 
-  @media (prefers-color-scheme: dark) {
-    background-color: #222;
-    color: white;
-  }
   min-height: 100vh;
   padding: 20px 20px;
 `,YB=ni.div`
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 ;
   display: flex;
   justify-content: space-between;
 `,QB=ni.div`
