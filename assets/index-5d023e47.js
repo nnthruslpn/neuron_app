@@ -1132,6 +1132,7 @@ PERFORMANCE OF THIS SOFTWARE.
   display: flex;
   justify-content: space-between;
 `,QB=Rn.div`
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1144,8 +1145,8 @@ PERFORMANCE OF THIS SOFTWARE.
   margin-bottom: 0;
   margin-left: 16px;
 `,JB=Rn.div`
-  width: 40px; /* Make the slider wider */
-  height: 100px;
+  width: 10vw; /* Make the slider wider */
+  height: 20vh;
   background-color: #ddd;
   border-radius: 10px;
   margin-right: 16px;
@@ -1160,7 +1161,7 @@ PERFORMANCE OF THIS SOFTWARE.
   transition: height 0.3s ease-in-out;
   align-self: flex-start; /* Make the slider start from the bottom */
 `,tT=Rn.div`
-  height: 100px;
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1183,7 +1184,7 @@ PERFORMANCE OF THIS SOFTWARE.
   gap: 10px;
   height: 100vh; /* Установите высоту родительского элемента */
 `,nT=Rn.div`
-  height: 100px;
+  height: 55vh;
   width: 84vw; /* занять всю ширину экрана */
   display: flex;
   justify-content: space-between;
