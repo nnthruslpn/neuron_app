@@ -120,30 +120,34 @@ function App() {
       </h2>
       <TonConnectButton /> {/* используем компонент TonConnectButton */}
     </FlexBoxRow>
-    <AppContainer style={{ marginTop: 40 }}> {/* добавили отступ сверху для контента */}
-      <FlexBoxCol>
-        <NftComponent>
-          <NftText>
-            NFT's: {nftCount}
-          </NftText>
-        </NftComponent>
-        <QuantityComponent>
-          <SliderContainer>
-            <Slider
-              style={{
-                height: `${(quantity / maxQuantity) * 100}%`,
-              }}
-            />
-          </SliderContainer>
-          <QuantityText>
-            Free NFT's<br/>
-            <span style={{ fontSize: 12 }}>
-              {quantity}/{maxQuantity}
-            </span>
-          </QuantityText>
-        </QuantityComponent>
-      </FlexBoxCol>
-    </AppContainer>
+    <AppContainer style={{ marginTop: 40, width: '90vw' }}>
+  <FlexBoxRow style={{ justifyContent: 'stretch', alignItems: 'center', width: '100%' }}>
+    <FlexBoxCol style={{ flex: 1, width: '50%' }}>
+      <NftComponent>
+        <NftText>
+          NFT's: {nftCount}
+        </NftText>
+      </NftComponent>
+    </FlexBoxCol>
+    <FlexBoxCol style={{ flex: 1, width: '50%' }}>
+      <QuantityComponent>
+        <SliderContainer>
+          <Slider
+            style={{
+              height: `${(quantity / maxQuantity) * 100}%`,
+            }}
+          />
+        </SliderContainer>
+        <QuantityText>
+          Free NFT's<br/>
+          <span style={{ fontSize: 12 }}>
+            {quantity}/{maxQuantity}
+          </span>
+        </QuantityText>
+      </QuantityComponent>
+    </FlexBoxCol>
+  </FlexBoxRow>
+</AppContainer>
   </StyledApp>
 );
 }
