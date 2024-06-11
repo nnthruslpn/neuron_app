@@ -11,11 +11,11 @@ const StyledApp = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 92vw;
+  width: 90vw;
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
-  backgroundColor: '#f0f0f0'
+  сolor: '#f0f0f0'
 `;
 
 const AppContainer = styled.div`
@@ -23,6 +23,7 @@ const AppContainer = styled.div`
   margin: 0 ;
   display: flex;
   justify-content: space-between;
+  сolor: '#f0f0f0'
 `;
 
 const QuantityComponent = styled.div`
@@ -54,7 +55,7 @@ const SliderContainer = styled.div`
 const Slider = styled.div`
   width: 100%; /* Make the blue bar fill the entire width */
   height: 0%; /* Initialize the height to 0 */
-  background-color: #337ab7;
+  background-color: #000000;
   border-radius: 10px;
   transition: height 0.3s ease-in-out;
   align-self: flex-start; /* Make the slider start from the bottom */
