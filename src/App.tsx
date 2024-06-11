@@ -29,7 +29,7 @@ const QuantityComponent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: #f7f7f7;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -65,7 +65,7 @@ const NftComponent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color: #f7f7f7;
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -89,6 +89,22 @@ const FlexBoxCol = styled.div`
   gap: 10px;
   height: 100vh; /* Установите высоту родительского элемента */
 `;
+const NewComponent = styled.div`
+  height: 100px;
+  width: 84vw; /* занять всю ширину экрана */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+const NewText = styled.span`
+  font-size: 18px;
+  margin-bottom: 0;
+`;
+
 function App() {
   const { network } = useTonConnect();
   const quantity = 155; // Replace with actual quantity
@@ -128,6 +144,13 @@ function App() {
           NFT's: {nftCount}
         </NftText>
       </NftComponent>
+      
+      <NewComponent>
+    <NewText>
+      Новый компонент
+    </NewText>
+  </NewComponent>
+ 
     </FlexBoxCol>
     <FlexBoxCol style={{ flex: 1, width: '50%' }}>
       <QuantityComponent>
@@ -145,8 +168,11 @@ function App() {
           </span>
         </QuantityText>
       </QuantityComponent>
+      
     </FlexBoxCol>
+    
   </FlexBoxRow>
+  
 </AppContainer>
   </StyledApp>
 );
