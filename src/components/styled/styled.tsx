@@ -10,7 +10,19 @@ export const Card = styled.div`
   }
 `;
 
+export const FlexBoxRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Добавьте это свойство */
+  gap: 10px;
+  align-items: center;
+`;
 
+export const FlexBoxCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 
 export const Button = styled.button`
