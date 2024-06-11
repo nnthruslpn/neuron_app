@@ -1125,13 +1125,12 @@ PERFORMANCE OF THIS SOFTWARE.
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
-  сolor: '#f0f0f0'
+  background-color: #fff;
 `,YB=ni.div`
   max-width: 900px;
   margin: 0 ;
   display: flex;
   justify-content: space-between;
-  сolor: '#f0f0f0'
 `,QB=ni.div`
   display: flex;
   justify-content: space-between;
@@ -1161,7 +1160,7 @@ PERFORMANCE OF THIS SOFTWARE.
   transition: height 0.3s ease-in-out;
   align-self: flex-start; /* Make the slider start from the bottom */
 `,tT=ni.div`
-  flex: 1; /* Добавьте это свойство */
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1182,4 +1181,5 @@ PERFORMANCE OF THIS SOFTWARE.
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100vh; /* Установите высоту родительского элемента */
 `;function nT(){GB();const e=155,t=300;return io(ZB,{children:[io(f5,{style:{justifyContent:"space-between",alignItems:"center",padding:"8px 16px",backgroundColor:"#f7f7f7",height:40,position:"absolute",top:0,left:0,right:0,borderBottomLeftRadius:10,borderBottomRightRadius:10},children:[vn("h2",{style:{color:"#666",background:"linear-gradient(to right, #666, #999)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"},children:"NEURON"}),vn(VR,{})," "]}),vn(YB,{style:{marginTop:60,width:"90vw",marginLeft:0,marginRight:0},children:io(f5,{style:{justifyContent:"stretch",alignItems:"center",width:"100%"},children:[vn(u5,{style:{flex:1,width:"50%"},children:vn(tT,{children:io(rT,{children:["NFT's: ",2]})})}),vn(u5,{style:{flex:1,width:"50%"},children:io(QB,{children:[vn(JB,{children:vn(eT,{style:{height:`${e/t*100}%`}})}),io(XB,{children:["Free NFT's",vn("br",{}),io("span",{style:{fontSize:12},children:[e,"/",t]})]})]})})]})})]})}const iT="https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json",oT=new _9({defaultOptions:{queries:{refetchOnWindowFocus:!1}}});P1.createRoot(document.getElementById("root")).render(vn(HR,{manifestUrl:iT,children:vn(Rw,{client:oT,children:vn(nT,{})})}));
