@@ -26,6 +26,7 @@ const AppContainer = styled.div`
 `;
 
 const QuantityComponent = styled.div`
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,8 +42,8 @@ const QuantityText = styled.span`
 `;
 
 const SliderContainer = styled.div`
-  width: 40px; /* Make the slider wider */
-  height: 100px;
+  width: 10vw; /* Make the slider wider */
+  height: 20vh;
   background-color: #ddd;
   border-radius: 10px;
   margin-right: 16px;
@@ -61,7 +62,7 @@ const Slider = styled.div`
 `;
 
 const NftComponent = styled.div`
-  height: 100px;
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -90,7 +91,7 @@ const FlexBoxCol = styled.div`
   height: 100vh; /* Установите высоту родительского элемента */
 `;
 const NewComponent = styled.div`
-  height: 100px;
+  height: 55vh;
   width: 84vw; /* занять всю ширину экрана */
   display: flex;
   justify-content: space-between;
