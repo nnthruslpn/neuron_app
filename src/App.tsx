@@ -26,6 +26,7 @@ const AppContainer = styled.div`
 `;
 
 const QuantityComponent = styled.div`
+  width: 34vw;
   display: flex;
   height: 20vh;
   align-items: center;
@@ -50,7 +51,7 @@ const QuantityTitle = styled.span`
 `;
 
 const QuantityCount = styled.span`
-  font-size: 22px;
+  font-size: 17px;
   font-weight: bold;
   color: #666;
 `;
@@ -108,13 +109,7 @@ const NftCount = styled.span`
   font-weight: bold;
   color: #666;
 `;
-const FlexBoxRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Добавьте это свойство */
-  gap: 10px;
-  align-items: center;
-`;
+
 
 const FlexBoxCol = styled.div`
   display: flex;
@@ -123,28 +118,7 @@ const FlexBoxCol = styled.div`
   height: 100vh; /* Установите высоту родительского элемента */
 `;
 
-const BalanceComponent = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-`;
 
-const BalanceLabel = styled.span`
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-  margin-right: 16px;
-`;
-
-const BalanceValue = styled.span`
-  font-size: 24px;
-  font-weight: bold;
-  color: #666;
-`;
 const NewComponent = styled.div`
   height: 50vh;
   width: 82vw;
@@ -176,15 +150,51 @@ const BuyButton = styled.button`
     transform: scale(0.95);
   }
 `;
-const Filler = styled.div`
-  flex-grow: 1;
+
+const FlexBoxRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+`;
+
+const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+`;
+
+const InputLabel = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+`;
+
+const InputField = styled.input`
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.2s ease-in-out;
+
+  &:focus {
+    border-color: #aaa;
+  }
 `;
 
 function App() {
-  const { network } = useTonConnect();
   const quantity = 155; // Replace with actual quantity
   const maxQuantity = 300; // Replace with actual max quantity
   const nftCount = 2; // Replace with actual NFT count
+  const { network, wallet } = useTonConnect();
+
+
+
+
+
 
   return (
     <StyledApp>
@@ -223,14 +233,21 @@ function App() {
 </NftComponent>
       
 <NewComponent>
-  <BalanceComponent>
-    <BalanceLabel>Your Balance</BalanceLabel>
-    <BalanceValue>123.45 TON</BalanceValue>
-  </BalanceComponent>
-  <Filler />
-  <BuyButton>Buy</BuyButton>
+<FlexBoxRow style={{ justifyContent: 'pace-between', alignItems: 'center', marginBottom: 16 }}>
+      <span style={{ fontSize: 16, fontWeight: 600, color: '#333' }}>Balance:</span>
+      <span style={{ fontSize: 18, fontWeight: 600, color: '#666' }}>1234 TON</span>
+    </FlexBoxRow>
+      <div style={{ borderBottom: '1px solid #ddd', marginBottom: 16 }} />
+      <InputWrapper>
+        <InputLabel>Количество NFT</InputLabel>
+        <InputField type="text"  />
+      </InputWrapper>
+      <InputWrapper>
+        <InputLabel>Количество TON</InputLabel>
+        <InputField type="text"  />
+      </InputWrapper>
+      <BuyButton>Buy</BuyButton>
 </NewComponent>
- 
     </FlexBoxCol>
     <FlexBoxCol style={{ flex: 1, width: '50%' }}>
     <QuantityComponent>
@@ -257,4 +274,3 @@ function App() {
 }
 
 export default App;
-
