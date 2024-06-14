@@ -1,10 +1,11 @@
 import "./App.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
-
+import { useState,useEffect } from "react";
 import styled from "styled-components";
-
+import { useTonWallet } from '@tonconnect/ui-react';
 import { useTonConnect } from "./hooks/useTonConnect";
-
+import { Address } from "ton-core";
+import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
@@ -189,13 +190,33 @@ function App() {
   const quantity = 155; // Replace with actual quantity
   const maxQuantity = 300; // Replace with actual max quantity
   const nftCount = 2; // Replace with actual NFT count
-  const { network, wallet } = useTonConnect();
+  const wallet = useTonWallet();
+  const { client } = useTonClient();
+  const [tonAmount, setTonAmount] = useState<string>('----');
+  const [usdAmount, setUsdAmount] = useState<string>(' ----');
+  useEffect(() => {
+    const update = async () => {
+      if (client && wallet) {
+        const walletAddress = Address.parse(wallet.account.address);
+        // const v4: WalletContractV4 = WalletContractV4.create({
+        //   workchain: 0,
+        //   publicKey: Buffer.from(wallet.account.publicKey, 'base64') as Buffer,
+        // });
+        // console.log('sdsdssds', v4);
+        client.getBalance(walletAddress).then((b) => {
+          setUsdAmount(
+            (Math.round(6.78 * Number(b / 1000_000_0n)) / 100).toString()
+          );
+          setTonAmount((Math.round(Number(b / 1000_000_0n)) / 100).toString());
+        });
 
+        //const jetton = JettonWallet.create(walletAddress);
 
-
-
-
-
+        //jetton.getBalance(client).console.log('wallet:', v4);
+      }
+    };
+    update();
+  }, [wallet, client]);
   return (
     <StyledApp>
     <FlexBoxRow style={{ 
@@ -235,7 +256,7 @@ function App() {
 <NewComponent>
 <FlexBoxRow style={{ justifyContent: 'pace-between', alignItems: 'center', marginBottom: 16 }}>
       <span style={{ fontSize: 16, fontWeight: 600, color: '#333' }}>Balance:</span>
-      <span style={{ fontSize: 18, fontWeight: 600, color: '#666' }}>1234 TON</span>
+      <span style={{ fontSize: 18, fontWeight: 600, color: '#666' }}>{tonAmount} TON</span>
     </FlexBoxRow>
       <div style={{ borderBottom: '1px solid #ddd', marginBottom: 16 }} />
       <InputWrapper>
