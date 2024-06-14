@@ -194,29 +194,37 @@ function App() {
   const { client } = useTonClient();
   const [tonAmount, setTonAmount] = useState<string>('----');
   const [usdAmount, setUsdAmount] = useState<string>(' ----');
+  const [nftAmount, setNftAmount] = useState('');
+  const [tonPrice, setTonPrice] = useState('');
+
+  const handleNftAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    setNftAmount(inputValue);
+
+    if (inputValue && !isNaN(Number(inputValue))) {
+      const nftPrice = 5; // Цена 1 NFT в TON
+      const totalTonPrice = Number(inputValue) * nftPrice;
+      setTonPrice(totalTonPrice.toFixed(2));
+    } else {
+      setTonPrice('');
+    }
+  };
   useEffect(() => {
     const update = async () => {
       if (client && wallet) {
         const walletAddress = Address.parse(wallet.account.address);
-        // const v4: WalletContractV4 = WalletContractV4.create({
-        //   workchain: 0,
-        //   publicKey: Buffer.from(wallet.account.publicKey, 'base64') as Buffer,
-        // });
-        // console.log('sdsdssds', v4);
+
         client.getBalance(walletAddress).then((b) => {
           setUsdAmount(
-            (Math.round(6.78 * Number(b / 1000_000_0n)) / 100).toString()
+            (Math.round(11 * Number(b / 1000_000_0n)) / 100).toString()
           );
           setTonAmount((Math.round(Number(b / 1000_000_0n)) / 100).toString());
         });
-
-        //const jetton = JettonWallet.create(walletAddress);
-
-        //jetton.getBalance(client).console.log('wallet:', v4);
       }
     };
     update();
   }, [wallet, client]);
+  
   return (
     <StyledApp>
     <FlexBoxRow style={{ 
@@ -256,18 +264,19 @@ function App() {
 <NewComponent>
 <FlexBoxRow style={{ justifyContent: 'pace-between', alignItems: 'center', marginBottom: 16 }}>
       <span style={{ fontSize: 16, fontWeight: 600, color: '#333' }}>Balance:</span>
-      <span style={{ fontSize: 18, fontWeight: 600, color: '#666' }}>{tonAmount} TON</span>
+      <span style={{ fontSize: 18, fontWeight: 600, color: '#666' }}>{tonAmount} TON {usdAmount} USD</span>
     </FlexBoxRow>
-      <div style={{ borderBottom: '1px solid #ddd', marginBottom: 16 }} />
-      <InputWrapper>
-        <InputLabel>Количество NFT</InputLabel>
-        <InputField type="text"  />
-      </InputWrapper>
-      <InputWrapper>
-        <InputLabel>Количество TON</InputLabel>
-        <InputField type="text"  />
-      </InputWrapper>
-      <BuyButton>Buy</BuyButton>
+    <div style={{ borderBottom: '1px solid #ddd', marginBottom: 16 }} />
+        <InputWrapper>
+          <InputLabel>Количество NFT</InputLabel>
+          <InputField type="text" value={nftAmount} onChange={handleNftAmountChange} />
+        </InputWrapper>
+        <InputWrapper>
+          <InputLabel>Цена в TON</InputLabel>
+          <InputField type="text" value={tonPrice} readOnly />
+        </InputWrapper>
+        <BuyButton>Buy</BuyButton>
+      
 </NewComponent>
     </FlexBoxCol>
     <FlexBoxCol style={{ flex: 1, width: '50%' }}>
