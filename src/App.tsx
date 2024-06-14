@@ -4,9 +4,11 @@ import { useState,useEffect } from "react";
 import styled from "styled-components";
 import { useTonWallet } from '@tonconnect/ui-react';
 import { useTonConnect } from "./hooks/useTonConnect";
-import { Address } from "ton-core";
+import { Address } from "ton";
 import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
+import { TonClient } from 'ton';
+
 
 const StyledApp = styled.div`
   position: fixed;
@@ -187,7 +189,6 @@ const InputField = styled.input`
 `;
 
 function App() {
-  const quantity = 155; // Replace with actual quantity
   const maxQuantity = 300; // Replace with actual max quantity
   const nftCount = 2; // Replace with actual NFT count
   const wallet = useTonWallet();
@@ -196,7 +197,25 @@ function App() {
   const [usdAmount, setUsdAmount] = useState<string>(' ----');
   const [nftAmount, setNftAmount] = useState('');
   const [tonPrice, setTonPrice] = useState('');
-
+  const [nextItemIndex, setNextItemIndex] = useState(0);
+  
+ const toncenter = new TonClient({
+    endpoint: 'https://toncenter.com/api/v2/jsonRPC',
+  });
+  
+ const nftCollectionAddress = Address.parse('EQDP9nGW2Ho0V0_pbW8qpx2q3VJVd9n0BtbQjts2XqZIrfgF');
+  
+ 
+ useEffect(() => {
+  (async () => {
+    let { stack } = await toncenter.callGetMethod(
+      nftCollectionAddress, 
+      'get_collection_data'
+    );
+    let nextItemIndexValue = stack.readBigNumber();
+    setNextItemIndex(Number(nextItemIndexValue));
+  })();
+}, []);
   const handleNftAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     setNftAmount(inputValue);
@@ -289,12 +308,12 @@ function App() {
     <QuantityComponent>
   <QuantityInfo>
     <QuantityTitle>Free NFT's</QuantityTitle>
-    <QuantityCount>{quantity}/{maxQuantity}</QuantityCount>
+    <QuantityCount>-/{nextItemIndex}</QuantityCount>
   </QuantityInfo>
   <SliderContainer>
     <Slider
       style={{
-        height: `${(quantity / maxQuantity) * 100}%`,
+        height: `${(155 / nextItemIndex) * 100}%`,
       }}
     />
   </SliderContainer>
