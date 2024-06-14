@@ -269,11 +269,17 @@ function App() {
     <div style={{ borderBottom: '1px solid #ddd', marginBottom: 16 }} />
         <InputWrapper>
           <InputLabel>Количество NFT</InputLabel>
-          <InputField type="text" value={nftAmount} onChange={handleNftAmountChange} />
+          <InputField 
+             type="text"
+             value={nftAmount}
+             onChange={handleNftAmountChange}
+             inputMode="numeric"
+             pattern="[0-9]*" />
         </InputWrapper>
         <InputWrapper>
           <InputLabel>Цена в TON</InputLabel>
-          <InputField type="text" value={tonPrice} readOnly />
+          <InputField type="text" value={tonPrice} inputMode="numeric"
+             pattern="[0-9]*" readOnly />
         </InputWrapper>
         <BuyButton>Buy</BuyButton>
       
